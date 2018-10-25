@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ExerciseLog.Models.Exercise>
+
+@{
+    ViewData["Title"] = "Exercise List";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Exercise_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Run_Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Run_Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pushup_Count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plank_Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exercise_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Run_Distance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Run_Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pushup_Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plank_Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
